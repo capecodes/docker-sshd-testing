@@ -10,18 +10,18 @@ RUN apk --update add supervisor openssh openssh-server bash \
 # sshd requires a "privilege separation directory"
   && mkdir /var/run/sshd \
 # add a group for all the ssh users
-  && addgroup sftpusers \
+  && addgroup customusers \
 # add a non-root local users
-  && adduser -D user01 -G sftpusers \
-  && adduser -D user02 -G sftpusers \
-  && adduser -D user03 -G sftpusers \
-  && adduser -D user04 -G sftpusers \
-  && adduser -D user05 -G sftpusers \
-  && adduser -D user06 -G sftpusers \
-  && adduser -D user07 -G sftpusers \
-  && adduser -D user08 -G sftpusers \
-  && adduser -D user09 -G sftpusers \
-  && adduser -D user10 -G sftpusers \
+  && adduser -D user01 -G customusers \
+  && adduser -D user02 -G customusers \
+  && adduser -D user03 -G customusers \
+  && adduser -D user04 -G customusers \
+  && adduser -D user05 -G customusers \
+  && adduser -D user06 -G customusers \
+  && adduser -D user07 -G customusers \
+  && adduser -D user08 -G customusers \
+  && adduser -D user09 -G customusers \
+  && adduser -D user10 -G customusers \
 # unlock the users (but dont set a password)
   && passwd -u user01 \
   && passwd -u user02 \
