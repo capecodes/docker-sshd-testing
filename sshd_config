@@ -13,3 +13,4 @@ PubkeyAuthentication yes
 PermitRootLogin no
 AllowAgentForwarding yes
 AuthorizedKeysFile /keys/user/%u/authorized_keys
+TrustedUserCAKeys /ca.pub

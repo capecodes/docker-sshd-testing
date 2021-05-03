@@ -12,7 +12,7 @@ Comes with
 Requires setting an env var `SSH_HOST_KEY` to a absolute path of one of the 10 host keypairs
 
 ```bash
-docker run -d --name=sshd-server -e SSH_HOST_KEY=/keys/host/host01 -p 2222:22  sshd-server
+docker run -d --name=sshd-server -e SSH_HOST_KEY=/keys/host/host01 -p 2222:22  capecodes/sshd-testing:latest
 ```
 # Host Keypairs
 
@@ -43,3 +43,7 @@ docker run -d --name=sshd-server -e SSH_HOST_KEY=/keys/host/host01 -p 2222:22  s
 |`user10`|`password10`|`/home/user10`|
 
 The user keypairs are found in this repositories `keys/user` directory
+
+## User Certificates
+
+ssh -v -i ./keys/user/user01_ed25519 -oCertificateFile=./keys/user/user01_ed25519-cert.pub -oPort=2222 user01@localhost

@@ -1,7 +1,7 @@
 # (C) 2017, Cape Codes, <info@cape.codes>
 # Dual licensed with MIT and GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
-FROM alpine:3.12
+FROM alpine:3.13
 
 MAINTAINER Cape Codes <info@cape.codes>
 
@@ -59,20 +59,24 @@ RUN apk --update add supervisor openssh openssh-server bash \
 COPY ./entrypoint.sh /entrypoint.sh
 
 # copy users pub keys into authorized_keys files
-COPY ./keys/user/user01.pub /keys/user/user01/authorized_keys
-COPY ./keys/user/user02.pub /keys/user/user02/authorized_keys
-COPY ./keys/user/user03.pub /keys/user/user03/authorized_keys
-COPY ./keys/user/user04.pub /keys/user/user04/authorized_keys
-COPY ./keys/user/user05.pub /keys/user/user05/authorized_keys
-COPY ./keys/user/user06.pub /keys/user/user06/authorized_keys
-COPY ./keys/user/user07.pub /keys/user/user07/authorized_keys
-COPY ./keys/user/user08.pub /keys/user/user08/authorized_keys
-COPY ./keys/user/user09.pub /keys/user/user09/authorized_keys
-COPY ./keys/user/user10.pub /keys/user/user10/authorized_keys
+COPY ./keys/user/user01_authorized_keys /keys/user/user01/authorized_keys
+COPY ./keys/user/user02_authorized_keys /keys/user/user02/authorized_keys
+COPY ./keys/user/user03_authorized_keys /keys/user/user03/authorized_keys
+COPY ./keys/user/user04_authorized_keys /keys/user/user04/authorized_keys
+COPY ./keys/user/user05_authorized_keys /keys/user/user05/authorized_keys
+COPY ./keys/user/user06_authorized_keys /keys/user/user06/authorized_keys
+COPY ./keys/user/user07_authorized_keys /keys/user/user07/authorized_keys
+COPY ./keys/user/user08_authorized_keys /keys/user/user08/authorized_keys
+COPY ./keys/user/user09_authorized_keys /keys/user/user09/authorized_keys
+COPY ./keys/user/user10_authorized_keys /keys/user/user10/authorized_keys
 
 # copy SSH host keypairs
 COPY ./keys/host/ /keys/host/
 
+# copy CA pub key
+COPY ./ca/ca.pub /ca.pub
+
+# copy sshc_config
 COPY ./sshd_config /etc/ssh/
 
 # supervisord conf
