@@ -46,4 +46,32 @@ The user keypairs are found in this repositories `keys/user` directory
 
 ## User Certificates
 
-ssh -v -i ./keys/user/user01_ed25519 -oCertificateFile=./keys/user/user01_ed25519-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_rsa_sha2_256_2048 -oCertificateFile=./keys/user/user01_rsa_sha2_256_2048-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_rsa_sha2_512_2048 -oCertificateFile=./keys/user/user01_rsa_sha2_512_2048-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_rsa_sha2_256_4096 -oCertificateFile=./keys/user/user01_rsa_sha2_256_4096-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_rsa_sha2_512_4096 -oCertificateFile=./keys/user/user01_rsa_sha2_512_4096-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_ed25519 -oCertificateFile=./keys/user/user01_ed25519-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_ecdsa_256 -oCertificateFile=./keys/user/user01_ecdsa_256-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_ecdsa_384 -oCertificateFile=./keys/user/user01_ecdsa_384-cert.pub -oPort=2222 user01@localhost
+ssh -vvv -i ./keys/user/user01_ecdsa_521 -oCertificateFile=./keys/user/user01_ecdsa_521-cert.pub -oPort=2222 user01@localhost
+
+ssh -v -i ./keys/user/user01_dsa -oCertificateFile=./keys/user/user01_dsa-cert.pub -oPort=2222 user01@localhost
+
+
+
+
+ssh -v -oCertificateFile=./user01_rsa_4096-cert.pub -oPort=2222 user01@localhost
+
+sig algs: 
+
+rsa:
+  rsa-sha-512 (preferred)
+  rsa-sha-256
+
+ed25519:
+  ssh-ed25519
+
+ecdsa:
+  ecdsa-sha2-nistp256
+  ecdsa-sha2-nistp384
+  ecdsa-sha2-nistp521
